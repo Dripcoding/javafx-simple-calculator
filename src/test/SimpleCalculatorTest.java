@@ -1,3 +1,4 @@
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -125,6 +126,24 @@ class SimpleCalculatorTest {
     verifyThat("#resultTextField", (TextField textField) -> {
       assertNotNull(textField);
       return textField.getText().isEmpty();
+    });
+  }
+
+  @Test
+  void resultTextFieldShouldShowSelectedNumbers(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#number2");
+    robot.clickOn("#number3");
+    robot.clickOn("#decimalButton");
+    robot.clickOn("#number1");
+    robot.clickOn("#number2");
+    robot.clickOn("#number3");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textField) -> {
+      assertNotNull(textField);
+      return textField.getText().equals("123.123");
     });
   }
 }
