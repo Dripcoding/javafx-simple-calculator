@@ -1,4 +1,5 @@
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
@@ -21,11 +22,14 @@ import java.io.IOException;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeoutException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.testfx.api.FxAssert.verifyThat;
 
 @ExtendWith(ApplicationExtension.class)
 class SimpleCalculatorTest {
+
+  private Stage primaryStage;
 
   @BeforeEach
   private void setUp() throws Exception {
@@ -34,6 +38,7 @@ class SimpleCalculatorTest {
 
   @Start
   private void start(Stage stage) {
+    primaryStage = stage;
     stage.show();
   }
 
@@ -42,6 +47,18 @@ class SimpleCalculatorTest {
     FxToolkit.hideStage();
     robot.release(new KeyCode[]{});
     robot.release(new MouseButton[]{});
+  }
+
+  @Test
+  void stageShouldHaveTitle(FxRobot robot) {
+    assertEquals("Simple Calculator", primaryStage.getTitle());
+  }
+
+  @Test
+  void stageShouldHaveIcon() {
+    Image image = primaryStage.getIcons().get(0);
+
+    assertNotNull(image);
   }
 
   @Test
