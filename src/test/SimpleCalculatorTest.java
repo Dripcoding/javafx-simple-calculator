@@ -146,4 +146,19 @@ class SimpleCalculatorTest {
       return textField.getText().equals("123.123");
     });
   }
+
+  @Test
+  void shouldHandleAddition(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#plusButton");
+    robot.clickOn("#number3");
+    robot.clickOn("#equalsButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textField) -> {
+      assertNotNull(textField);
+      return textField.getText().equals("4.0");
+    });
+  }
 }
