@@ -176,6 +176,25 @@ class SimpleCalculatorTest extends ApplicationTest{
   }
 
   @Test
+  void shouldHandleMultiplicationCorrectly(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#number0");
+    robot.clickOn("#number0");
+    robot.clickOn("#timesButton");
+    robot.clickOn("#number1");
+    robot.clickOn("#number0");
+    robot.clickOn("#number0");
+    robot.clickOn("#equalsButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("10000.0");
+    });
+  }
+
+  @Test
   void shouldHandleClearCorrectly(FxRobot robot) {
     robot.clickOn("#number1");
     robot.clickOn("#number0");

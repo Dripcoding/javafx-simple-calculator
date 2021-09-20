@@ -72,6 +72,8 @@ public class PrimaryController {
       result = operand1Value + operand2Value;
     } else if (operator.equals("-")) {
       result = operand1Value - operand2Value;
+    } else if (operator.equals("x")) {
+      result = operand1Value * operand2Value;
     }
 
     currentValue = result;
@@ -84,7 +86,7 @@ public class PrimaryController {
   private boolean isOperatorChosen() {
     return operator.contains("+")
         || operator.contains("-")
-        || operator.contains("*")
+        || operator.contains("x")
         || operator.contains("/");
   }
 }
