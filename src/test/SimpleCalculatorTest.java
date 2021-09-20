@@ -1,4 +1,3 @@
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
@@ -19,8 +17,6 @@ import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import org.testfx.util.WaitForAsyncUtils;
 
-import java.io.IOException;
-import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.testfx.api.FxAssert.verifyThat;
 
 @ExtendWith(ApplicationExtension.class)
-class SimpleCalculatorTest {
+class SimpleCalculatorTest extends ApplicationTest{
 
   private Stage primaryStage;
 
@@ -38,9 +34,8 @@ class SimpleCalculatorTest {
   }
 
   @Start
-  private void start(Stage stage) {
+  public void start(Stage stage) {
     primaryStage = stage;
-    stage.show();
   }
 
   @AfterEach
@@ -159,6 +154,32 @@ class SimpleCalculatorTest {
     verifyThat("#resultTextField", (TextField textField) -> {
       assertNotNull(textField);
       return textField.getText().equals("4.0");
+    });
+  }
+
+  @Test
+  void shouldHandleClearCorrectly(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#number0");
+    robot.clickOn("#number0");
+    robot.clickOn("#plusButton");
+    robot.clickOn("#number1");
+    robot.clickOn("#equalsButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("101.0");
+    });
+
+    robot.clickOn("#clearButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("");
     });
   }
 }
