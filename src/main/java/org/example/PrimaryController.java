@@ -74,6 +74,8 @@ public class PrimaryController {
       result = operand1Value - operand2Value;
     } else if (operator.equals("x")) {
       result = operand1Value * operand2Value;
+    } else if (operator.equals("/")) {
+      result = operand1Value / operand2Value;
     }
 
     currentValue = result;

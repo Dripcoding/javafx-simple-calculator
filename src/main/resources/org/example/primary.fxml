@@ -80,7 +80,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="divideButton" layoutY="356.0" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="/">
+      <Button fx:id="divideButton" layoutY="356.0" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleClickArithmeticOperation" text="/">
          <font>
             <Font size="18.0" />
          </font>

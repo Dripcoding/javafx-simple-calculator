@@ -195,6 +195,24 @@ class SimpleCalculatorTest extends ApplicationTest{
   }
 
   @Test
+  void shouldHandleDivisionCorrectly(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#number0");
+    robot.clickOn("#number0");
+    robot.clickOn("#divideButton");
+    robot.clickOn("#number1");
+    robot.clickOn("#number0");
+    robot.clickOn("#equalsButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("10.0");
+    });
+  }
+
+  @Test
   void shouldHandleClearCorrectly(FxRobot robot) {
     robot.clickOn("#number1");
     robot.clickOn("#number0");
