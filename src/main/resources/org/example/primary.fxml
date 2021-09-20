@@ -70,7 +70,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="minusButton" layoutX="100.0" layoutY="317.0" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="-">
+      <Button fx:id="minusButton" layoutX="100.0" layoutY="317.0" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleClickArithmeticOperation" text="-">
          <font>
             <Font size="18.0" />
          </font>

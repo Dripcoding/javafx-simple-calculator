@@ -143,7 +143,7 @@ class SimpleCalculatorTest extends ApplicationTest{
   }
 
   @Test
-  void shouldHandleAddition(FxRobot robot) {
+  void shouldHandleAdditionCorrectly(FxRobot robot) {
     robot.clickOn("#number1");
     robot.clickOn("#plusButton");
     robot.clickOn("#number3");
@@ -154,6 +154,24 @@ class SimpleCalculatorTest extends ApplicationTest{
     verifyThat("#resultTextField", (TextField textField) -> {
       assertNotNull(textField);
       return textField.getText().equals("4.0");
+    });
+  }
+
+
+  @Test
+  void shouldHandleSubtractionCorrectly(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#number0");
+    robot.clickOn("#number0");
+    robot.clickOn("#minusButton");
+    robot.clickOn("#number1");
+    robot.clickOn("#equalsButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("99.0");
     });
   }
 

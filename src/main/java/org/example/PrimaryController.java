@@ -70,6 +70,8 @@ public class PrimaryController {
 
     if (operator.equals("+")) {
       result = operand1Value + operand2Value;
+    } else if (operator.equals("-")) {
+      result = operand1Value - operand2Value;
     }
 
     currentValue = result;
