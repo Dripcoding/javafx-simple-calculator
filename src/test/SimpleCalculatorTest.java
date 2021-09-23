@@ -4,6 +4,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.example.App;
+import org.example.FxIds;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -59,66 +60,66 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldContainButtonsForDigitsZeroThroughNine(FxRobot robot) {
-    verifyThat("#number1", LabeledMatchers.hasText("1"));
-    verifyThat("#number1", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_1_BUTTON, LabeledMatchers.hasText("1"));
+    verifyThat(FxIds.NUMBER_1_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number2", LabeledMatchers.hasText("2"));
-    verifyThat("#number2", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_2_BUTTON, LabeledMatchers.hasText("2"));
+    verifyThat(FxIds.NUMBER_2_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number3", LabeledMatchers.hasText("3"));
-    verifyThat("#number3", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_3_BUTTON, LabeledMatchers.hasText("3"));
+    verifyThat(FxIds.NUMBER_3_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number4", LabeledMatchers.hasText("4"));
-    verifyThat("#number4", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_4_BUTTON, LabeledMatchers.hasText("4"));
+    verifyThat(FxIds.NUMBER_4_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number5", LabeledMatchers.hasText("5"));
-    verifyThat("#number5", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_5_BUTTON, LabeledMatchers.hasText("5"));
+    verifyThat(FxIds.NUMBER_5_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number6", LabeledMatchers.hasText("6"));
-    verifyThat("#number6", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_6_BUTTON, LabeledMatchers.hasText("6"));
+    verifyThat(FxIds.NUMBER_6_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number7", LabeledMatchers.hasText("7"));
-    verifyThat("#number7", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_7_BUTTON, LabeledMatchers.hasText("7"));
+    verifyThat(FxIds.NUMBER_7_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number8", LabeledMatchers.hasText("8"));
-    verifyThat("#number8", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_8_BUTTON, LabeledMatchers.hasText("8"));
+    verifyThat(FxIds.NUMBER_8_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number9", LabeledMatchers.hasText("9"));
-    verifyThat("#number9", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_9_BUTTON, LabeledMatchers.hasText("9"));
+    verifyThat(FxIds.NUMBER_9_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#number0", LabeledMatchers.hasText("0"));
-    verifyThat("#number0", NodeMatchers.isVisible());
+    verifyThat(FxIds.NUMBER_0_BUTTON, LabeledMatchers.hasText("0"));
+    verifyThat(FxIds.NUMBER_0_BUTTON, NodeMatchers.isVisible());
   }
 
   @Test
   void shouldContainBasicArithmeticButtons(FxRobot robot) {
-    verifyThat("#plusButton", LabeledMatchers.hasText("+"));
-    verifyThat("#plusButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.PLUS_BUTTON, LabeledMatchers.hasText("+"));
+    verifyThat(FxIds.PLUS_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#minusButton", LabeledMatchers.hasText("-"));
-    verifyThat("#minusButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.MINUS_BUTTON, LabeledMatchers.hasText("-"));
+    verifyThat(FxIds.MINUS_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#timesButton", LabeledMatchers.hasText("x"));
-    verifyThat("#timesButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.TIMES_BUTTON, LabeledMatchers.hasText("x"));
+    verifyThat(FxIds.TIMES_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#divideButton", LabeledMatchers.hasText("/"));
-    verifyThat("#divideButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.DIVIDE_BUTTON, LabeledMatchers.hasText("/"));
+    verifyThat(FxIds.DIVIDE_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#decimalButton", LabeledMatchers.hasText("."));
-    verifyThat("#decimalButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.DECIMAL_BUTTON, LabeledMatchers.hasText("."));
+    verifyThat(FxIds.DECIMAL_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#clearButton", LabeledMatchers.hasText("clear"));
-    verifyThat("#clearButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.CLEAR_BUTTON, LabeledMatchers.hasText("clear"));
+    verifyThat(FxIds.CLEAR_BUTTON, NodeMatchers.isVisible());
 
-    verifyThat("#equalsButton", LabeledMatchers.hasText("="));
-    verifyThat("#equalsButton", NodeMatchers.isVisible());
+    verifyThat(FxIds.EQUALS_BUTTON, LabeledMatchers.hasText("="));
+    verifyThat(FxIds.EQUALS_BUTTON, NodeMatchers.isVisible());
   }
 
 
   @Test
   void shouldContainTextFieldToShowResults(FxRobot robot) {
-    verifyThat("#resultTextField", NodeMatchers.isVisible());
-    verifyThat("#resultTextField", (TextField textField) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, NodeMatchers.isVisible());
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textField) -> {
       assertNotNull(textField);
       return textField.getText().isEmpty();
     });
@@ -126,17 +127,17 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void resultTextFieldShouldShowSelectedNumbers(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#number2");
-    robot.clickOn("#number3");
-    robot.clickOn("#decimalButton");
-    robot.clickOn("#number1");
-    robot.clickOn("#number2");
-    robot.clickOn("#number3");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_2_BUTTON);
+    robot.clickOn(FxIds.NUMBER_3_BUTTON);
+    robot.clickOn(FxIds.DECIMAL_BUTTON);
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_2_BUTTON);
+    robot.clickOn(FxIds.NUMBER_3_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textField) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textField) -> {
       assertNotNull(textField);
       return textField.getText().equals("123.123");
     });
@@ -144,14 +145,14 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldHandleAdditionCorrectly(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#plusButton");
-    robot.clickOn("#number3");
-    robot.clickOn("#equalsButton");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.PLUS_BUTTON);
+    robot.clickOn(FxIds.NUMBER_3_BUTTON);
+    robot.clickOn(FxIds.EQUALS_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textField) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textField) -> {
       assertNotNull(textField);
       return textField.getText().equals("4.0");
     });
@@ -160,16 +161,16 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldHandleSubtractionCorrectly(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#number0");
-    robot.clickOn("#number0");
-    robot.clickOn("#minusButton");
-    robot.clickOn("#number1");
-    robot.clickOn("#equalsButton");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.MINUS_BUTTON);
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.EQUALS_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().equals("99.0");
     });
@@ -177,18 +178,18 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldHandleMultiplicationCorrectly(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#number0");
-    robot.clickOn("#number0");
-    robot.clickOn("#timesButton");
-    robot.clickOn("#number1");
-    robot.clickOn("#number0");
-    robot.clickOn("#number0");
-    robot.clickOn("#equalsButton");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.TIMES_BUTTON);
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.EQUALS_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().equals("10000.0");
     });
@@ -196,17 +197,17 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldHandleDivisionCorrectly(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#number0");
-    robot.clickOn("#number0");
-    robot.clickOn("#divideButton");
-    robot.clickOn("#number1");
-    robot.clickOn("#number0");
-    robot.clickOn("#equalsButton");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.DIVIDE_BUTTON);
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.EQUALS_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().equals("10.0");
     });
@@ -214,25 +215,25 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldHandleClearCorrectly(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#number0");
-    robot.clickOn("#number0");
-    robot.clickOn("#plusButton");
-    robot.clickOn("#number1");
-    robot.clickOn("#equalsButton");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.NUMBER_0_BUTTON);
+    robot.clickOn(FxIds.PLUS_BUTTON);
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.EQUALS_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().equals("101.0");
     });
 
-    robot.clickOn("#clearButton");
+    robot.clickOn(FxIds.CLEAR_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().equals("");
     });
@@ -240,14 +241,14 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldNotAllowMultipleOperatorsToBeChosenAtOnce(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#number2");
-    robot.clickOn("#plusButton");
-    robot.clickOn("#plusButton");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.NUMBER_2_BUTTON);
+    robot.clickOn(FxIds.PLUS_BUTTON);
+    robot.clickOn(FxIds.PLUS_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().contains("12 + ");
     });
@@ -255,13 +256,13 @@ class SimpleCalculatorTest extends ApplicationTest{
 
   @Test
   void shouldDisplayWhitespaceBeforeAndAfterOperator(FxRobot robot) {
-    robot.clickOn("#number1");
-    robot.clickOn("#minusButton");
-    robot.clickOn("#number1");
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
+    robot.clickOn(FxIds.MINUS_BUTTON);
+    robot.clickOn(FxIds.NUMBER_1_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 
-    verifyThat("#resultTextField", (TextField textfield) -> {
+    verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textfield) -> {
       assertNotNull(textfield);
       return textfield.getText().equals("1 - 1");
     });
