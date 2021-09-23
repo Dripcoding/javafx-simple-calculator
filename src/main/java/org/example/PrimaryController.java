@@ -71,8 +71,9 @@ public class PrimaryController {
 
   private boolean isOperatorChosen() {
     return (operator.equals("+")
-        || operator.equals("-")
-        || operator.equals("x")
-        || operator.equals("/")) && resultTextField.getText().contains(operator);
+            || operator.equals("-")
+            || operator.equals("x")
+            || operator.equals("/"))
+        && resultTextField.getText().contains(operator);
   }
 }
