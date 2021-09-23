@@ -8,23 +8,6 @@ import javafx.scene.control.TextField;
 public class PrimaryController {
 
   @FXML private TextField resultTextField;
-  @FXML private Button number1;
-  @FXML private Button number2;
-  @FXML private Button number3;
-  @FXML private Button number4;
-  @FXML private Button number5;
-  @FXML private Button number6;
-  @FXML private Button number7;
-  @FXML private Button number8;
-  @FXML private Button number9;
-  @FXML private Button number0;
-  @FXML private Button decimalButton;
-  @FXML private Button clearButton;
-  @FXML private Button plusButton;
-  @FXML private Button minusButton;
-  @FXML private Button timesButton;
-  @FXML private Button divideButton;
-  @FXML private Button equalsButton;
 
   private String operand1 = "";
   private String operand2 = "";
@@ -46,8 +29,9 @@ public class PrimaryController {
   public void handleClickArithmeticOperation(ActionEvent event) {
     Button target = ((Button) event.getSource());
     operator = target.getText();
-
-    resultTextField.setText(resultTextField.getText().concat(target.getText()));
+    if (!isOperatorChosen()) {
+      resultTextField.setText(resultTextField.getText().concat(target.getText()));
+    }
   }
 
   public void handleClickEquals() {
@@ -86,9 +70,9 @@ public class PrimaryController {
   }
 
   private boolean isOperatorChosen() {
-    return operator.contains("+")
-        || operator.contains("-")
-        || operator.contains("x")
-        || operator.contains("/");
+    return (operator.equals("+")
+        || operator.equals("-")
+        || operator.equals("x")
+        || operator.equals("/")) && resultTextField.getText().contains(operator);
   }
 }

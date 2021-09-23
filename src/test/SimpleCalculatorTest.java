@@ -237,4 +237,20 @@ class SimpleCalculatorTest extends ApplicationTest{
       return textfield.getText().equals("");
     });
   }
+
+  @Test
+  void shouldNotAllowMultipleOperatorsToBeChosenAtOnce(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#number2");
+    robot.clickOn("#plusButton");
+    robot.clickOn("#plusButton");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("12+");
+    });
+  }
+
 }
