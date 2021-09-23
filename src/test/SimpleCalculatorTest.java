@@ -249,8 +249,21 @@ class SimpleCalculatorTest extends ApplicationTest{
 
     verifyThat("#resultTextField", (TextField textfield) -> {
       assertNotNull(textfield);
-      return textfield.getText().equals("12+");
+      return textfield.getText().contains("12 + ");
     });
   }
 
+  @Test
+  void shouldDisplayWhitespaceBeforeAndAfterOperator(FxRobot robot) {
+    robot.clickOn("#number1");
+    robot.clickOn("#minusButton");
+    robot.clickOn("#number1");
+
+    WaitForAsyncUtils.waitForFxEvents();
+
+    verifyThat("#resultTextField", (TextField textfield) -> {
+      assertNotNull(textfield);
+      return textfield.getText().equals("1 - 1");
+    });
+  }
 }

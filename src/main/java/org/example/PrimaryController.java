@@ -30,7 +30,7 @@ public class PrimaryController {
     Button target = ((Button) event.getSource());
     operator = target.getText();
     if (!isOperatorChosen()) {
-      resultTextField.setText(resultTextField.getText().concat(target.getText()));
+      resultTextField.setText(resultTextField.getText().concat(" " + target.getText() + " "));
     }
   }
 
