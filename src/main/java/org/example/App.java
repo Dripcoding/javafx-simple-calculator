@@ -20,7 +20,6 @@ public class App extends Application {
     stage.getIcons().add(stageIcon);
     stage.setTitle("Simple Calculator");
 
-    stage.setScene(scene);
     stage.centerOnScreen();
     stage.show();
   }
