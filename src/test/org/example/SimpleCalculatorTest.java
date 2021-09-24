@@ -1,10 +1,10 @@
+package org.example;
+
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-import org.example.App;
-import org.example.FxIds;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -139,7 +139,7 @@ class SimpleCalculatorTest extends ApplicationTest{
 
     verifyThat(FxIds.RESULTS_TEXT_FIELD, (TextField textField) -> {
       assertNotNull(textField);
-      return textField.getText().equals("123.123");
+      return textField.getText().equals("123 . 123");
     });
   }
 
@@ -245,6 +245,8 @@ class SimpleCalculatorTest extends ApplicationTest{
     robot.clickOn(FxIds.NUMBER_2_BUTTON);
     robot.clickOn(FxIds.PLUS_BUTTON);
     robot.clickOn(FxIds.PLUS_BUTTON);
+    robot.clickOn(FxIds.MINUS_BUTTON);
+    robot.clickOn(FxIds.DIVIDE_BUTTON);
 
     WaitForAsyncUtils.waitForFxEvents();
 

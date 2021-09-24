@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 
 public class PrimaryController {
 
+  @FXML private Button decimalButton;
   @FXML private TextField resultTextField;
 
   private String operand1 = "";
@@ -73,7 +74,8 @@ public class PrimaryController {
     return (operator.equals("+")
             || operator.equals("-")
             || operator.equals("x")
-            || operator.equals("/"))
+            || operator.equals("/")
+            || operator.equals("."))
         && resultTextField.getText().contains(operator);
   }
 }
